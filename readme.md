@@ -1,4 +1,4 @@
-# Proyecto sobre una abarroteria
+# Proyecto para la abarrotería: *Dirio vivir S.A*
 ## Tecnologías usadas con NodeJS
 ### Frontend:
 > * Vite
