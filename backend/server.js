@@ -1,7 +1,7 @@
 const express = require('express')
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
-const routes = require('./routes')
+const routes = require('./inventario/routes')
 const cors = require('cors')
 
 
