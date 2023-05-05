@@ -3,6 +3,7 @@ const mysql = require('mysql')
 const myconn = require('express-myconnection')
 const routesProd = require('./Producto/routes')
 const routesSuc = require('./Sucursal/routes')
+const routesUsu = require('./Usuarios/routes')
 const cors = require('cors')
 
 
@@ -27,6 +28,7 @@ app.get('/',(req,res)=>{
 })
 app.use('/prod', routesProd)
 app.use('/suc', routesSuc)
+app.use('/usuario', routesUsu)
 
 app.listen(app.get('port'), ()=>{
     console.log('Servidor activado ',app.get('port'))
