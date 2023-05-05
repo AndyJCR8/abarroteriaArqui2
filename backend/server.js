@@ -26,6 +26,7 @@ app.get('/',(req,res)=>{
     res.send('Hola')
 })
 app.use('/prod', routesProd)
+app.use('/suc', routesSuc)
 
 app.listen(app.get('port'), ()=>{
     console.log('Servidor activado ',app.get('port'))
