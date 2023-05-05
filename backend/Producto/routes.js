@@ -12,7 +12,7 @@ routes.get('/tipoprod', (req, res)=>{
 })
 
 //----------------------------CRUD PRODUCTO
-routes.get('/prod', (req, res)=>{
+routes.get('/', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('Select * from tblproducto', (err, rows)=>{
@@ -22,7 +22,7 @@ routes.get('/prod', (req, res)=>{
     })
 })
 
-routes.post('/prod', (req, res)=>{
+routes.post('/', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('INSERT INTO tblproducto set ?',[req.body], (err, rows)=>{
@@ -32,7 +32,7 @@ routes.post('/prod', (req, res)=>{
     })
 })
 
-routes.put('/prod/:id', (req, res)=>{
+routes.put('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('UPDATE libros set ? WHERE idLibro = ?',[req.body, req.params.id], (err, rows)=>{
