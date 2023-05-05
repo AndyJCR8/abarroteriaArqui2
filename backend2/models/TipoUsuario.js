@@ -1,20 +1,21 @@
-import { Sequelize, DataTypes as dt} from "sequelize"
+import { Sequelize, DataTypes as dt } from "sequelize"
 import db from "../database/db.js"
 
-const tipoProducto = db.define("tbltipoproducto", {
-  IdTipoProducto: {
+const tipoUsuario = db.define("tbltipousuario", {
+  IdTipoUsuario: {
     type: dt.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  TipoProducto: {
+  TipoUsuario: {
     type: dt.STRING,
     allowNull: false
   }
+
 }, {
-  tableName: "tbltipoproducto",
+  tableName: "tbltipousuario",
   freezeTableName: true,
   timestamps: false
 })
 
-export default tipoProducto;
+export default tipoUsuario;
