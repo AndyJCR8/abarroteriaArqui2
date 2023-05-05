@@ -1,7 +1,10 @@
 const express = require('express')
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
-const routes = require('./inventario/routes')
+const routesProd = require('./Producto/routes')
+const routesSuc = require('./Sucursal/routes')
+const routesUsu = require('./Usuarios/routes')
+const routesTipoUsu = require('./TipoUsuario/routes')
 const cors = require('cors')
 
 
@@ -24,8 +27,10 @@ app.use(cors())
 app.get('/',(req,res)=>{
     res.send('Hola')
 })
-app.use('/api', routes)
-
+app.use('/prod', routesProd)
+app.use('/suc', routesSuc)
+app.use('/usuario', routesUsu)
+app.use('/tipoUsu', routesTipoUsu)
 app.listen(app.get('port'), ()=>{
     console.log('Servidor activado ',app.get('port'))
 })
