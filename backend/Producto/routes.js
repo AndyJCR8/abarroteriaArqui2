@@ -32,12 +32,12 @@ routes.post('/prod', (req, res)=>{
     })
 })
 
-routes.put('/prod', (req, res)=>{
+routes.put('/prod/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
-        conn.query('Select * from tblproducto', (err, rows)=>{
+        conn.query('UPDATE libros set ? WHERE idLibro = ?',[req.body, req.params.id], (err, rows)=>{
             if(err) return res.send(err)
-            res.json(rows)
+            res.json('Libro Actualizado')
         })
     })
 })
