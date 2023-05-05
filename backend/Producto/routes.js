@@ -35,9 +35,41 @@ routes.post('/', (req, res)=>{
 routes.put('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
-        conn.query('UPDATE libros set ? WHERE idLibro = ?',[req.body, req.params.id], (err, rows)=>{
+        conn.query('UPDATE tblproducto set ? WHERE IdProducto = ?',[req.body, req.params.id], (err, rows)=>{
             if(err) return res.send(err)
-            res.json('Libro Actualizado')
+            res.json('Producto Actualizado')
+        })
+    })
+})
+
+
+//----------------------------CRUD PRODUCTOSUCURSAL
+routes.get('/suc', (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+        conn.query('Select * from tblproductosucursal', (err, rows)=>{
+            if(err) return res.send(err)
+            res.json(rows)
+        })
+    })
+})
+
+routes.post('/suc', (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+        conn.query('INSERT INTO tblproductosucursal set ?',[req.body], (err, rows)=>{
+            if(err) return res.send(err)
+            res.json('producto insertado')
+        })
+    })
+})
+
+routes.put('/suc/:id', (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+        conn.query('UPDATE tblproductosucursal set ? WHERE IdProductoSucursal = ?',[req.body, req.params.id], (err, rows)=>{
+            if(err) return res.send(err)
+            res.json('Producto Actualizado')
         })
     })
 })

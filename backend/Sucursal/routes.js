@@ -26,7 +26,7 @@ routes.post('/', (req, res)=>{
 routes.put('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
-        conn.query('UPDATE tblsucursal set ? WHERE  = ?',[req.body, req.params.id], (err, rows)=>{
+        conn.query('UPDATE tblsucursal set ? WHERE IdSucursal = ?',[req.body, req.params.id], (err, rows)=>{
             if(err) return res.send(err)
             res.json('Libro Actualizado')
         })
